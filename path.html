@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Path of the Ancients – Tilted Planet Preview</title>
+  <meta name="author" content="Alex Kouliy">
+  <meta name="description" content="Path of the Ancients Lore Site">
+    <!-- Links -->
+  <link rel="stylesheet" href="glyphs/glyph_core.css">
+  <link rel="stylesheet" href="glyphs/variables.css">
+  <link rel="stylesheet" href="glyphs/system_ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Add to existing styles */
+    #canvasContainer { transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .zoom-to-planet { transform: scale(1.5); }
+    .fade-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); z-index: 10000; pointer-events: none; transition: background-color 1s ease; transition-delay: 0.2s; }
+    .fade-overlay.visible { background-color: rgba(0, 0, 0, 1); pointer-events: auto; }
+  </style>
+</head>
+<body>
+  <!-- Right-Side Navigation -->
+  <nav class="nav-float" aria-label="Section Navigation">
+    <button class="nav-item" data-section="about"><div class="nav-item-inner"><span class="nav-label">ABOUT</span><span class="nav-icon"><i class="fas fa-satellite"></i></span></div></button>
+    <button class="nav-item" data-section="characters"><div class="nav-item-inner"><span class="nav-label">CHARACTERS</span><span class="nav-icon"><i class="fas fa-address-book"></i></span></div></button>
+    <button class="nav-item" data-section="lore"><div class="nav-item-inner"><span class="nav-label">LORE</span><span class="nav-icon"><i class="fas fa-server"></i></span></div></button>
+    <button class="nav-item" data-section="map"><div class="nav-item-inner"><span class="nav-label">MAP</span><span class="nav-icon"><i class="fas fa-globe"></i></span></div></button>
+    <button class="nav-item" data-section="contact"><div class="nav-item-inner"><span class="nav-label">CONTACT</span><span class="nav-icon"><i class="fas fa-pen-to-square"></i></span></div></button>
+  </nav>
+
+  <!-- System UI Elements -->
+  <div id="system-ui" class="system-ui">
+    <!-- Top Left: Planet Data -->
+    <div class="system-readout top-left">
+      <div class="readout-group">
+        <i class="fas fa-globe"></i>
+        <span class="readout-label">Planet Designation:</span>
+        <span class="readout-value" id="planet-name">Tilted World</span>
+      </div>
+      <div class="readout-group">
+        <i class="fas fa-clock"></i>
+        <span class="readout-label">Current Era:</span>
+        <span class="readout-value" id="current-era">Modern Era</span>
+      </div>
+    </div>
+
+    <!-- Top Right: Environmental Data -->
+    <div class="system-readout top-right">
+      <div class="readout-group">
+        <i class="fas fa-satellite"></i>
+        <span class="readout-label">Orbital Distance:</span>
+        <span class="readout-value" id="orbital-distance">1.2 AU</span>
+      </div>
+      <div class="readout-group">
+        <i class="fas fa-temperature-high"></i>
+        <span class="readout-label">Surface Temp:</span>
+        <span class="readout-value" id="surface-temp">-12°C</span>
+      </div>
+      <div class="readout-group">
+        <i class="fas fa-radiation"></i>
+        <span class="readout-label">Surface Hostility:</span>
+        <span class="readout-value" id="surface-hostility">High</span>
+      </div>
+      <div class="readout-group">
+        <i class="fas fa-dna"></i>
+        <span class="readout-label">Biome Variety:</span>
+        <span class="readout-value" id="biome-variety">Low</span>
+      </div>
+      <div class="readout-group">
+        <i class="fas fa-water"></i>
+        <span class="readout-label">Surface Water:</span>
+        <span class="readout-value" id="surface-water">Low</span>
+      </div>
+    </div>
+
+    <!-- Terminal Output -->
+    <div class="system-readout terminal-output">
+      <div class="terminal-content" id="terminal-content"></div>
+    </div>
+
+    <!-- Energy Readouts -->
+    <div class="system-readout energy-readouts">
+      <div class="readout-group storm-energy">
+        <i class="fas fa-bolt"></i>
+        <span class="readout-label">Storm Energy:</span>
+        <div class="energy-bar">
+          <div class="energy-level" id="storm-energy-level"></div>
+        </div>
+      </div>
+      <div class="readout-group void-energy">
+        <i class="fas fa-meteor"></i>
+        <span class="readout-label">Void Energy:</span>
+        <div class="energy-bar">
+          <div class="energy-level" id="void-energy-level"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid Overlay -->
+    <div id="grid-overlay" class="grid-overlay"></div>
+
+    <!-- System Boot Elements -->
+    <div id="system-boot" class="system-boot">
+      <div class="boot-sequence">
+        <div class="boot-text">INITIALIZING PLANETARY SCAN...</div>
+        <div class="boot-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explore Button as a Styled Link -->
+  <a href="tiers.html" class="explore-button" id="exploreButton">
+    <span class="icon"><i class="fas fa-compass-drafting"></i></span>
+    <span class="explore-label">EXPLORE</span>
+  </a>
+
+
+  <div id="canvasContainer">
+    <div id="controls">
+      <button class="era-button" id="prevEra">
+        <div class="era-popout"><i class="fas fa-chevron-left"></i></div>
+        <div class="era-label">Previous Era</div>
+      </button>
+      <button class="era-button" id="chooseEra">
+        <div class="era-popout"><i class="fas fa-hourglass"></i></div>
+        <div class="era-label">Select Era</div>
+      </button>
+      <button class="era-button" id="nextEra">
+        <div class="era-popout"><i class="fas fa-chevron-right"></i></div>
+        <div class="era-label">Next Era</div>
+      </button>
+    </div>
+    <div id="timelineChronicle"></div>
+  </div>
+
+  <!-- Dynamic MODAL -->
+  <div id="dynamic-modal" class="modal-panel">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <!-- content will be injected here -->
+    </div>
+  </div>
+  
+  <div class="fade-overlay" aria-hidden="true"></div>
+
+  <canvas id="starfield"></canvas>
+
+  <script type="module">
+    // Create a global object to share data between scripts
+    window.ERA_DATA = {
+      currentEra: 4,
+      eraData: [
+        { name: 'Ancients Era', texture: 'visions/planet_preshatter.webp', glow: 'visions/planet_ancient_glow.webp', modalId: 'modal-ancientsera', tooltip: 'Before the first fracture.', icon: 'visions/era_ancients.webp' },
+        { name: 'Shattering Era', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-shatteringera', tooltip: 'The world breaks and reforms.', icon: 'visions/era_shattering.webp' },
+        { name: 'Era of Ashes', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-eraofashes', tooltip: 'Survival after the fall.', icon: 'visions/era_ashes.webp' },
+        { name: 'Forgotten Era', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-forgottenera', tooltip: 'A time erased from records.', icon: 'visions/era_forgotten.webp' },
+        { name: 'Modern Era', modalId: 'modal-modernera', tooltip: 'Fragmented empires rise again.', icon: 'visions/era_modern.webp' },
+        { name: 'Reignition Era', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-reignitionera', tooltip: 'Storm and Void awaken.', icon: 'visions/era_reignition.webp' },
+        { name: 'Ascension Era', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-ascensionera', tooltip: 'Edgewalkers reclaim balance.', icon: 'visions/era_ascension.webp' },
+        { name: 'Reflections Era', texture: 'visions/planet_shattered.webp', glow: 'visions/planet_default_glow.webp', modalId: 'modal-reflectionsera', tooltip: 'The world remembers itself.', icon: 'visions/era_reflections.webp' },
+        { name: 'Renewal Era', texture: 'visions/planet_renewal.webp', glow: 'visions/planet_renewal_glow.webp', modalId: 'modal-renewalera', tooltip: 'The cycle begins anew.', icon: 'visions/era_renewal.webp' },
+      ]
+    };
+
+    // Terminal message configuration
+    window.TERMINAL_CONFIG = {
+      messageDelay: 1000,        // Delay between messages in ms
+      cycleInterval: 30000,      // How often to cycle through messages
+      maxMessages: 420,           // Maximum number of messages to keep in terminal
+      fadeDuration: 500,         // Duration of message fade in/out in ms
+      initialDelay: 2000,        // Delay before starting message cycle in ms
+      messageTypes: {            // Message type weights (higher = more frequent)
+        scan: 3,                 // Scanning messages
+        analysis: 2,             // Analysis messages
+        warning: 1,              // Warning messages
+        notice: 2                // Notice messages
+      }
+    };
+
+    // Import Three.js core library
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.148.0/build/three.module.js';
+    
+    // === Configuration Object ===
+    // Adjust spin speed, glow properties, and transition behavior
+    const CONFIG = {
+      spinSpeed: -0.0005,                // Default planet rotation speed
+      glowOpacity: 0.3,                  // Base opacity of the outer glow
+      glowScale: 2.3,                    // Size scale of the glow sprite
+      glowPulseSpeed: 0.0002,            // Speed of glow pulsation effect
+      glowBlendMode: THREE.AdditiveBlending, // Blending mode used for the glow sprite
+      boostedSpinSpeed: -0.1,            // Speed during transition boost
+      boostDuration: 1000                // Duration of boosted spin in ms
+    };
+    
+    // === Global Variables ===
+    let scene, camera, renderer;         // Core Three.js components
+    let spinGroup, tiltGroup;            // Groups to manage rotation and axial tilt
+    let cloudSphere, glowOverlay, baseSphere; // Mesh layers of the planet
+    let planetMaterial;                  // Current texture material for the planet
+    let boostedSpinTimeout = null;       // Reference to clear spin timeout
+    let direction = -1; 
+    let spinVelocity = CONFIG.spinSpeed;
+    let currentEra = ERA_DATA.currentEra;
+    let eraData = ERA_DATA.eraData;
+    
+    // DOM Elements
+    const container = document.getElementById('canvasContainer');
+    const timelineChronicle = document.getElementById('timelineChronicle');
+    
+    // === Change the Planet and Glow Textures Based on Era ===
+    function updateEraTexture(idx) {
+      const era = eraData[idx];
+      if (!era || idx === currentEra) return;
+
+      const direction = idx < currentEra ? -1 : 1;
+      currentEra = idx;
+
+      const textureName = era.texture || 'visions/planet_shattered.webp';
+      const glowName = era.glow || 'visions/planet_default_glow.webp';
+
+      const loader = new THREE.TextureLoader();
+
+      Promise.all([
+        loader.loadAsync(textureName),
+        loader.loadAsync(glowName)
+      ]).then(([newTexture, newGlow]) => {
+        // Update planet texture
+        planetMaterial.map = newTexture;
+        planetMaterial.map.needsUpdate = true;
+
+        // Update glow texture
+        if (glowOverlay?.material) {
+          glowOverlay.material.map = newGlow;
+          glowOverlay.material.map.needsUpdate = true;
+        }
+
+        // Trigger correct direction spin boost
+        boostSpin(direction);
+
+        // Close timeline menu after selection
+        timelineChronicle.style.display = 'none';
+
+        // Open related modal if available
+        const modalId = era.modalId;
+        if (modalId) {
+          const modal = document.getElementById('dynamic-modal');
+          document.querySelectorAll('.modal-panel.open').forEach(m => m.classList.remove('open'));
+          setTimeout(() => {
+            modal.classList.add('open');
+          }, CONFIG.boostDuration);
+        }
+
+      }).catch(err => {
+        console.error("Error loading textures for era:", era.name, err);
+      });
+    }
+
+
+    
+    // === Temporarily Speed Up Rotation for Visual Effect ===
+    function boostSpin(dir = 1) {
+      spinVelocity = CONFIG.boostedSpinSpeed * dir;
+
+      clearTimeout(boostedSpinTimeout);
+      boostedSpinTimeout = setTimeout(() => {
+        spinVelocity = CONFIG.spinSpeed;
+      }, CONFIG.boostDuration);
+    }
+
+    
+    // === Show/Hide the Timeline Selector with Era Buttons ===
+    function toggleEraTimeline() {
+      timelineChronicle.innerHTML = ''; // Clear previous nodes
+      const isVisible = timelineChronicle.style.display === 'flex';
+      timelineChronicle.style.display = isVisible ? 'none' : 'flex';
+    
+      if (!isVisible) {
+        // Build clickable icons for each era
+        eraData.forEach((era, idx) => {
+          const node = document.createElement('div');
+          node.className = 'era-node' + (idx === currentEra ? ' active-era' : '');
+          node.setAttribute('data-tooltip', `${era.name}: ${era.tooltip}`);
+          node.innerHTML = `<img src="${era.icon}" alt="${era.name}" style="height: 28px; object-fit: contain;">`;
+          node.dataset.modal = era.modalId;
+          node.dataset.eraIndex = idx;
+
+          node.onclick = (e) => {
+            e.stopPropagation(); // Prevent click from bubbling to document
+            updateEraTexture(idx);
+            // Dispatch a custom event for the modal
+            const event = new CustomEvent('eraSelected', { 
+              detail: { 
+                modalId: era.modalId,
+                eraIndex: idx 
+              }
+            });
+            window.dispatchEvent(event);
+          };
+    
+          timelineChronicle.appendChild(node);
+        });
+
+        // Add click handler to close menu when clicking outside
+        setTimeout(() => {
+          document.addEventListener('click', closeEraMenu);
+        }, 0);
+      } else {
+        // Remove click handler when menu is closed
+        document.removeEventListener('click', closeEraMenu);
+      }
+    }
+
+    // Function to close the era menu
+    function closeEraMenu(e) {
+      if (!timelineChronicle.contains(e.target) && !e.target.closest('#chooseEra')) {
+        timelineChronicle.style.display = 'none';
+        document.removeEventListener('click', closeEraMenu);
+      }
+    }
+
+    
+    // === Initialize the 3D Planet Scene ===
+    function initPlanet(planetTexture, cloudTexture, glowTexture) {
+      // Create scene and camera
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 2.5; // Controls distance from planet
+    
+      // Create WebGL renderer with transparency
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      container.appendChild(renderer.domElement);
+    
+      // Create base planet sphere
+      const sphereGeo = new THREE.SphereGeometry(1, 64, 64);
+      planetMaterial = new THREE.MeshBasicMaterial({ map: planetTexture });
+      baseSphere = new THREE.Mesh(sphereGeo, planetMaterial);
+    
+      // Cloud sphere wrapped around the planet, animated
+      cloudTexture.wrapS = cloudTexture.wrapT = THREE.RepeatWrapping;
+      const cloudMat = new THREE.MeshBasicMaterial({
+        map: cloudTexture,
+        transparent: true,
+        opacity: 0.55,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
+      });
+      cloudSphere = new THREE.Mesh(new THREE.SphereGeometry(1.01, 67, 67), cloudMat);
+    
+      // Group both planet and clouds so they spin together
+      spinGroup = new THREE.Group();
+      spinGroup.add(baseSphere, cloudSphere);
+    
+      // Apply axial tilt using tiltGroup
+      tiltGroup = new THREE.Group();
+      tiltGroup.add(spinGroup);
+      tiltGroup.rotation.z = THREE.MathUtils.degToRad(23.5); // 23.5° like Earth
+      tiltGroup.position.y = 0.1;
+      scene.add(tiltGroup);
+    
+      // Prepare glow texture and sprite material
+      glowTexture.minFilter = THREE.LinearFilter;
+      glowTexture.magFilter = THREE.LinearFilter;
+      glowTexture.wrapS = glowTexture.wrapT = THREE.ClampToEdgeWrapping;
+    
+      const glowMaterial = new THREE.SpriteMaterial({
+        map: glowTexture,
+        transparent: true,
+        opacity: CONFIG.glowOpacity,
+        blending: CONFIG.glowBlendMode,
+        depthWrite: false,
+        depthTest: false,
+        color: new THREE.Color(0xffaaff)
+      });
+    
+      // Create glow overlay sprite
+      glowOverlay = new THREE.Sprite(glowMaterial);
+      glowOverlay.scale.set(CONFIG.glowScale, CONFIG.glowScale, 1);
+      glowOverlay.position.y = 0.01;
+      glowOverlay.position.z = 0.1;
+      glowOverlay.renderOrder = 999; // Ensure it renders above everything
+    
+      tiltGroup.add(glowOverlay);
+    
+      // Start animation loop
+      animate();
+    }
+    
+    // === Animation Loop ===
+    let pulseTime = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+    
+      // Rotate the planet
+      spinGroup.rotation.y += spinVelocity;
+
+    
+      // Animate cloud texture scrolling for effect
+      if (cloudSphere?.material?.map) {
+        cloudSphere.material.map.offset.x += 0.0002;
+        cloudSphere.material.map.offset.y += 0.00005;
+      }
+    
+      // Create pulsating glow effect
+      pulseTime += CONFIG.glowPulseSpeed;
+      const pulse = (Math.sin(pulseTime) + 1) / 2;
+      if (glowOverlay?.material) {
+        glowOverlay.material.opacity = CONFIG.glowOpacity * (0.9 + 0.1 * pulse);
+      }
+    
+      // Render the scene
+      renderer.render(scene, camera);
+    }
+    
+    // === Load Initial Planet Textures, Then Start Scene ===
+    const loader = new THREE.TextureLoader();
+    Promise.all([
+      loader.loadAsync("visions/planet_shattered.webp"),
+      loader.loadAsync("visions/perlin_cloud_texture.png"),
+      loader.loadAsync("visions/planet_default_glow.webp")
+    ]).then(([planetTex, cloudTex, glowTex]) => {
+      initPlanet(planetTex, cloudTex, glowTex);
+    });
+    
+    // === Button Event Listeners ===
+    document.getElementById("prevEra").addEventListener("click", () => {
+      if (currentEra > 0) {
+        const newEraIndex = currentEra - 1;
+        updateEraTexture(newEraIndex);
+        boostSpin(-1);
+        
+        // Trigger modal update
+        const era = eraData[newEraIndex];
+        if (era?.modalId) {
+          const event = new CustomEvent('eraSelected', { 
+            detail: { 
+              modalId: era.modalId,
+              eraIndex: newEraIndex 
+            }
+          });
+          window.dispatchEvent(event);
+        }
+      }
+    });
+    
+    document.getElementById("nextEra").addEventListener("click", () => {
+      if (currentEra < eraData.length - 1) {
+        const newEraIndex = currentEra + 1;
+        updateEraTexture(newEraIndex);
+        boostSpin(1);
+        
+        // Trigger modal update
+        const era = eraData[newEraIndex];
+        if (era?.modalId) {
+          const event = new CustomEvent('eraSelected', { 
+            detail: { 
+              modalId: era.modalId,
+              eraIndex: newEraIndex 
+            }
+          });
+          window.dispatchEvent(event);
+        }
+      }
+    });
+    
+    document.getElementById("chooseEra").addEventListener("click", toggleEraTimeline);
+
+    // Add to existing script, before the ERA_DATA definition
+    const exploreButton = document.getElementById('exploreButton');
+    const fadeOverlay = document.querySelector('.fade-overlay');
+    const canvasContainer = document.getElementById('canvasContainer');
+
+    exploreButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Start zoom effect
+      canvasContainer.classList.add('zoom-to-planet');
+      
+      // Trigger fade to black
+      fadeOverlay.classList.add('visible');
+      
+      // Redirect after animations complete
+      setTimeout(() => {
+        window.location.href = exploreButton.href;
+      }, 1300); // Match the transition duration
+    });
+  </script>
+  
+  <script src="arcanum/starfield.js" type="module"></script>
+  <script src="arcanum/modals.js" type="module"></script>
+  <script src="arcanum/system_ui.js" type="module"></script>
+  
+</body>
+</html>

@@ -1,0 +1,199 @@
+{
+  "about": {
+    "title": "About Path of the Ancients",
+    "text": "In a shattered world where the fury of the Storm and the silence of the Void collide, Path of the Ancients invites you to journey through a realm scarred by the fall of the Ancients. Beneath the broken skies and shifting sands, lost technologies and forbidden magic shape the remnants of existence. Ancient relics whisper of power untold, while the echoes of those who walked the Eye call to those daring enough to forge their path. Once shaped by the balance between chaos and emptiness, this world now teeters on the edge of ruin. The choices of the bold will decide its fate. Will you harness the Storm, defy the Void, and uncover the secrets buried within the depths? Will you walk the Hollow Path, or will the world's endless cycles consume you as they have countless others? The Ancients Remember. The Worthy Rise. Survive, Discover, Ascend."
+  },
+  "characters": [
+    {
+      "name": "The Bladecaster",
+      "paragraphs": [
+        "A master of melee combat empowered by magical blades.",
+        "Valen's journey begins as a humble villager, leading a quiet life until a brief encounter with the Nomad tribe and the Survivor (Lyra) inspires him to seek a greater purpose. Motivated by her strength and independence, he ventures into the ruins, where he discovers the Storm Glaive—a weapon that awakens his latent connection to the Storm. Along his journey, Valen experiences a pivotal moment when he witnesses the Tinkerer through a Storm Echo, battling the Storm to save Aeternum. This vision fuels his determination to master the chaos within himself and the power of both the Storm and the Void. Valen's path is one of growth, as he evolves from a fledgling adventurer to a champion of balance and protector of his world."
+      ]
+    },
+    {
+      "name": "The Survivor",
+      "paragraphs": [
+        "A resourceful fighter skilled at turning enemies into allies.",
+        "Lyra, once the daughter of a Nomad chief, is a rogue trickster defined by her resourcefulness, resilience, and struggle for redemption. Her exposure to a Void shard during a sandstorm transformed her into a Veilbound, leaving her with erratic and destructive powers tied to her exposed, Void-imbued heart. Haunted by past betrayals and losses, Lyra embarks on a journey of self-discovery, learning to trust again and harness the Void without losing herself to it. Her relationships with key figures, including the Tinkerer, the Bladecaster, the Wanderer, and the Enchantress, shape her path toward becoming a Sentinel."
+      ]
+    },
+    {
+      "name": "The Tinkerer",
+      "paragraphs": [
+        "An Inventor, crafting mechanical constructs and advanced tools.",
+        "Aeron, a direct descendant of the Shatterer who wields immense Storm power. His inability to fully control this power drives him into isolation, where he dedicates his life to exploring ruins and crafting intricate Storm-tech creations. Aeron's journey revolves around mastering the Eye of Storm to balance his destructive potential with his creative genius. His relationships with key figures, including Survivor, Bladecaster, and enigmatic Seeker shape his path, as does his unwavering bond with Aeternum."
+      ]
+    }
+  ],
+  "lore": [
+    {
+      "title": "The Storm",
+      "text": "Unrestrained force of raw emotion, willpower, and creation. It surges like a wildfire, embodying passion, defiance, and transformation. Storm does not yield; it either fuels its wielder or consumes them. To wield it is to embrace overwhelming feeling, but unchecked, it leads to destruction—both of self and of world around them."
+    },
+    {
+      "title": "The Void",
+      "text": "Shadow of storm, abyss of suppression, control, and calculated detachment. It is force of unwavering discipline and unshaken resolve, granting its wielders inhuman focus and endurance. However, Void hollows out those who rely on it, stripping them of their emotions, their connections, and, ultimately, their identity. It is strength without feeling, survival without meaning."
+    },
+    {
+      "title": "The Eye",
+      "text": "Eye of Storm, true balance, fleeting harmony between Storm and Void. To walk Eye is to move with both forces rather than against them. It is neither suppression nor reckless abandon, but a mastery of both. Eye demands presence, adaptability, and an acceptance of both extremes without succumbing to either. It is hardest path to walk, but also only one that grants true freedom."
+    },
+    {
+      "title": "The Echo",
+      "text": "Deception, rigid construct masquerading as balance. Echo is result of a failed attempt to force Eye into submission rather than moving with it. It is illusion of control, where wielder believes they have mastered both Storm and Void, but in truth, they have chained themselves to an artificial structure that only mimics balance. Echo is prison of false stability, where one bends forces to their will rather than understanding their nature, leading to blindness, stagnation, and ultimately, self-destruction."
+    }
+  ],
+  "map": {
+    "title": "World Map",
+    "text": ""
+  },
+  "contact": {
+    "title": "Contact Us",
+    "text": "Reach out to the team behind Path of the Ancients..."
+  },
+  "eras": [
+    {
+      "id": "ancientsera",
+      "title": "Ancients Era",
+      "text": "The golden age of humanity's advanced civilization, where harmony reigned before the first fracture. During this era, humanity discovered the Void, mistaking it for the totality of the primal force, unaware it was merely the Storm's shadow. This discovery led to a technological revolution marked by neural dampeners for emotional control, Void-powered infrastructure, and consciousness manipulation technology. The Ancients developed sophisticated systems for emotional regulation, creating a society that valued control and order above all else. Their hubris in attempting to master and suppress the natural forces of creation would ultimately lead to their downfall, as their experiments and manipulations of the fundamental forces of existence triggered the cataclysmic event known as the Shattering."
+    },
+    {
+      "id": "shatteringera",
+      "title": "Shattering Era",
+      "text": "The cataclysmic period where the world broke and reformed, born from the clash between Storm and Void. The era was marked by the tragic story of the Shatterer, a subject of Ancient experiments who found peace as a farmer until his grief and rage triggered the world-changing event. His transformation into a fundamental force of nature was mirrored by the Veil's own metamorphosis into the embodiment of Void energy. The conflict between these two forces tore reality apart, creating the foundation for modern Storm and Void manipulation. The era ended with their mutual transformation, establishing the first true understanding of balance between creation and destruction."
+    },
+    {
+      "id": "eraofashes",
+      "title": "Era of Ashes",
+      "text": "A time of survival and adaptation in the aftermath of the Shattering. Survivors scattered across the shattered world, forming isolated communities in the ruins. The first Storm-born emerged, individuals with natural Storm abilities who developed the earliest Storm-wielding techniques. The Bladecaster Order was founded during this period, establishing the first systematic approach to controlled Storm wielding through specially crafted weapons. Myths and legends began to form from the ashes of the old world, as people struggled to understand and harness the new forces that shaped their reality."
+    },
+    {
+      "id": "forgottenera",
+      "title": "Forgotten Era",
+      "text": "A dark period deliberately erased from records, where only the bravest dared to remember the truth. The Void Council rose to power, implementing martial law and mass deployment of Eternals in an attempt to maintain control. Meanwhile, underground resistance networks formed, led by those who had adapted to Storm energy. This era saw the first attempts to force balance through the Echo, a rigid construct that masqueraded as true harmony. The period ended with the emergence of the first true Edgewalkers, those who began to understand the importance of moving with both forces rather than against them."
+    },
+    {
+      "id": "modernera",
+      "title": "Modern Era",
+      "text": "A time of transformation marked by the arrival of the Sentinels of the Storm, powerful beings who emerged from the depths of the Storm's fury. These Sentinels, embodiments of the Storm's will, began to guide humanity toward a new understanding of balance. The Artificer's Guild, inspired by the Sentinels' presence, developed new technologies that harmonized with both Storm and Void energies. Modern factions like the Storm Weavers, Monks of the Eye, and Void Seekers each found new purpose under the Sentinels' guidance, leading to unprecedented cooperation between different approaches to wielding the forces. The era saw the establishment of the first Storm Sanctuaries, places of learning and power where the Sentinels shared their wisdom with those willing to listen."
+    },
+    {
+      "id": "reignitionera",
+      "title": "Reignition Era",
+      "text": "A period of profound awakening, ignited by the full ascension of the Sentinels of the Storm. As these powerful beings reached their full potential, they established the Seven Storm Sanctuaries as permanent centers of learning and power. The Sentinels' teachings revolutionized the understanding of Storm and Void, leading to the development of advanced wielding techniques like Healing Harmonics, Balanced Battle Arts, and Expressive Integration. Their presence brought about a new era of cooperation between different factions, as people began to see the true potential of working with the forces rather than against them. The Sentinels' influence spread across the world, inspiring a generation of practitioners to walk the edge between power and purpose, developing new approaches to emotional regulation and energy manipulation."
+    },
+    {
+      "id": "ascensionera",
+      "title": "Ascension Era",
+      "text": "A time of profound transformation marked by the emergence of the Wills of the Storm, chosen individuals who embody the pure essence of the Storm's power. Under the guidance of the Sentinels, these Wills began their rigorous training, learning to channel the Storm's fury with unprecedented precision and purpose. The era saw the establishment of specialized training grounds where the Wills and their apprentices developed new techniques of Harmonic Wielding, pushing the boundaries of what was thought possible with Storm energy. The Wanderer and the Enchantress, eternal beings from the Ancient past, joined the Sentinels in mentoring this new generation, helping them understand the delicate balance between power and responsibility. This period marked the beginning of a new order, where the Wills of the Storm would stand as protectors of balance and champions of the Storm's true purpose."
+    },
+    {
+      "id": "reflectionsera",
+      "title": "Reflections Era",
+      "text": "A period of conflict and revelation, where the Wills of the Storm face their greatest challenge. Dark counterparts emerged, practitioners who twisted the teachings of the Eye to serve their own malevolent purposes. These corrupted wielders, calling themselves the Shadow Weavers, sought to pervert the balance between Storm and Void, using their understanding of the Eye's principles to amplify their destructive power. The era became defined by the struggle between the Wills and their apprentices against these dark forces, as both sides sought to prove their vision of balance. The Dancing Lights phenomenon in the Stormpeaks intensified, reflecting the growing tension between these opposing forces. This conflict forced the Wills and their mentors to confront the true nature of power and the responsibility that comes with understanding the Eye's secrets."
+    },
+    {
+      "id": "renewalera",
+      "title": "Renewal Era",
+      "text": "A time of profound transition and healing, where the world passes from the protection of the Sentinels into the guidance of the Wills of the Storm. The era begins in mourning, as the great conflict with the Shadow Weavers claimed many lives, including several of the original Sentinels. Their sacrifice, however, brought about a deeper understanding of the Storm's true nature and purpose. The Wills of the Storm, tempered by loss and battle, now stand as the world's new guardians, carrying forward the wisdom of their fallen mentors while forging their own path. This period is marked by both celebration of victory and remembrance of those lost, as the world begins to heal from the wounds of conflict. The surviving Sentinels, though diminished in number, continue to share their knowledge with the new generation, ensuring that the lessons of the past are not forgotten. It is a time of rebuilding, not just of places and things, but of hope and purpose, as the Wills work to honor the legacy of their predecessors while guiding the world toward a new understanding of balance."
+    }
+  ],
+  "tiers": [
+    {
+      "id": "tier1",
+      "title": "TIER 01: SURFACE",
+      "image": "visions/tier_1_scorchedsurface.png",
+      "icon": "visions/icon_surface.webp",
+      "data": {
+        "environment": "HOSTILE",
+        "stormEnergy": "HIGH",
+        "voidPresence": "MEDIUM",
+        "ancientArtifacts": "SCATTERED"
+      },
+      "paragraphs": [
+        "The Shattering devastated the surface, leaving it a glassed, craggy wasteland...",
+        "Cataclysmic Origins\nThe Shattering devastated the surface, obliterating ecosystems and leaving a glassed, craggy, desert wasteland.\nStorm energy permeates the land, creating pockets of unstable power and scattered storm crystals, remnants of the Shatterer's form, shape civilization around themselves.\nThe ruins of Ancient cities and sanctuaries still dot the surface, offering glimpses of their lost civilization.",
+        "Modern Role\nThe surface is a treacherous, inhospitable place, home to scavengers, wanderers, and pockets of survivors who eke out a harsh existence.\nIt is also the gateway to the tiers below, with entrances to caverns and tunnels often hidden in ruins or natural formations.",
+        "The sun beats mercilessly upon the cracked and barren land of the Scorched Surface, where remnants of an ancient civilization lies half-buried in the sands. Jagged rock formations and skeletal remains of colossal beasts serve as eerie sentinels in this desolate expanse. Dust storms frequently sweep across the plains, reducing visibility to mere inches and forcing travelers to seek shelter amidst the ruins. The air is dry and acrid, carrying whispers of a long-forgotten cataclysm that reduced this once-thriving world to an arid wasteland. Every step here is a test of endurance and survival, as nomads and predators alike scour the sands for precious resources."
+      ]
+    },
+    {
+      "id": "tier2",
+      "title": "TIER 02: RUINS",
+      "image": "visions/tier_2_technoruins.png",
+      "icon": "visions/icon_ruins.webp",
+      "data": {
+        "environment": "DARK",
+        "stormEnergy": "HIGH",
+        "voidPresence": "LOW",
+        "ancientArtifacts": "EXTENDED"
+      },
+      "paragraphs": [
+        "Below the surface, remnants of the old world remain hidden in vast cavernous ruins...",
+        "Descending into the Rocky Caves, the harsh light of the surface gives way to the dim, echoing chambers of an underground labyrinth. Stalactites and stalagmites, formed over millennia, create natural pillars and obstacles in these winding tunnels. The air is cool and damp, filled with the scent of earth and mineral-rich water. Hidden alcoves and treacherous drop-offs make navigation perilous, while the faint glimmer of bioluminescent fungi and crystalline deposits provides a ghostly illumination. The deeper one ventures, the more the sense of ancient guardianship grows, as if the very stones are watching, waiting to challenge any who dare intrude.",
+        "Below the Surface not all is as it seems, at first a wary wanderer will find themselves in a cavern to escape the brutal heat of the surface, however the deeper one goes into these caves the clearer it becomes that it isn't a dark and desolate life down here. The ruins of the ancients extend past the surface into these technological ruins within the caverns of the world. A refuge the ancients retreated to after the initial fallout of the Shattering.",
+        "One can find abandoned ruins of the old world in a more pristine condition down here, however wanderers be wary of the constructs that still call these ancient technological cavern cities their home. On occasion one will find a ruin that has been taken over and converted to modern living spaces however such places are few and far between and often heavily fortified."
+      ]
+    },
+    {
+      "id": "tier3",
+      "title": "TIER 03: CAVERNS",
+      "image": "visions/tier_3_verdantgrove.png",
+      "icon": "visions/icon_grove.webp",
+      "data": {
+        "environment": "LUSH",
+        "stormEnergy": "LOW",
+        "voidPresence": "LOW",
+        "ancientArtifacts": "EXTENDED"
+      },
+      "paragraphs": [
+        "These underground sanctuaries have become a thriving ecosystem of bioluminescent flora...",
+        "A Hidden Sanctuary\nThe Ruins gradually transition into the lush, hidden paradise of the Verdant Caverns. Here, the air is thick with humidity and the heady scent of blooming flora. Towering trees with phosphorescent leaves stretch upwards, their roots intertwining with the cavern walls and ceiling, creating a verdant web of life. Exotic plants and vibrant flowers thrive in the dappled light that filters through natural skylights, casting shifting patterns on the moss-covered ground. Streams of crystal-clear water wind through the terrain, their gentle murmurs blending with the distant calls of unseen creatures. This is a place of both beauty and danger, where nature's bounty is matched by its ferocity.",
+        "After the surface became uninhabitable, some survivors fled underground, seeking refuge in natural cave systems.\nOver centuries, these caverns transformed into a thriving, self-sustaining ecosystem, nourished by storm-infused water that seeped from above.",
+        "Flora and Fauna\nThe caverns are lush with glowing plants and bioluminescent fungi, some of which are storm-touched and exhibit unusual properties.\nUnique creatures evolved here, adapted to the perpetual twilight and rich storm energy, ranging from harmless herbivores to deadly predators.",
+        "The People of the Caverns\nDescendants of the first refugees live here, forming small, isolated communities.\nTheir culture revolves around balance with the environment and reverence for the storm energy that sustains them.",
+        "Ties to the Ancients\nAncient tunnels and minor sanctuaries connect to the caverns, often reclaimed by nature but still holding forgotten relics."
+      ]
+    },
+    {
+      "id": "tier4",
+      "title": "TIER 04: DEPTHS",
+      "image": "visions/tier_4_abyssaldepths.png",
+      "icon": "visions/icon_abyss.webp",
+      "data": {
+        "environment": "DARK",
+        "stormEnergy": "HIGH",
+        "voidPresence": "HIGH",
+        "ancientArtifacts": "EXTENDED"
+      },
+      "paragraphs": [
+        "The last refuge of the Ancients, now a domain of forgotten technology and danger...",
+        "The Verdant Caverns give way to the foreboding expanse of the Abyssal Depths, where darkness reigns supreme. The air is thick and oppressive, tinged with the scent of decay and the distant roar of subterranean rivers. Bioluminescent flora and fauna provide the only light, casting eerie, shifting glows that create a sense of perpetual twilight. Strange, otherworldly creatures prowl these depths, their eyes reflecting the faint light in unsettling ways. The very ground seems unstable, with treacherous sinkholes and sudden drops into black voids that threaten to swallow the unwary. It is a place where the boundary between the physical world and the mystical seems to blur, whispering secrets of the abyss to those who dare to listen.",
+        "The Final Refuge of the Ancients\nAs their civilization crumbled, the Ancients retreated deeper underground, constructing fortified cities and sanctuaries to escape the surface chaos.\nThese depths became their last stand, where they attempted to rebuild and survive.",
+        "A Dark Legacy\nThe Abyssal Depths are filled with ruined Ancient cities, many of which are overrun by malfunctioning Eternals, storm-powered automatons, and other remnants of the Ancients' experiments.\nThe storm energy here is volatile, creating zones of extreme instability where reality itself seems to warp.",
+        "Environment\nThe depths are dark, oppressive, and treacherous, with jagged rock formations, deep chasms, and underground lakes that glow faintly with storm energy.\nDespite the danger, the depths are a treasure trove of knowledge and power for those brave enough to explore."
+      ]
+    },
+    {
+      "id": "tier5",
+      "title": "TIER 05: OASIS",
+      "image": "visions/tier_5_lostoasis.png",
+      "icon": "visions/icon_oasis.webp",
+      "data": {
+        "environment": "LUSH",
+        "stormEnergy": "LOW",
+        "voidPresence": "LOW",
+        "ancientArtifacts": "EXTENDED"
+      },
+      "paragraphs": [
+        "A hidden paradise, where Storm energy fuels an ecosystem of renewal...",
+        "At the deepest point of the descent lies the Oasis, a hidden sanctuary of life and renewal amidst the surrounding desolation. Here, the air is warm and fragrant, filled with the sweet scent of blooming flowers and ripe fruit. Crystal-clear waters form serene pools and flowing streams, nourishing an abundance of plant and animal life. The landscape is a vibrant tapestry of colors and textures, from the soft grass underfoot to the towering, ancient trees that provide shelter and shade. It is a place of tranquility and harmony, where the hardships of the journey above are momentarily forgotten in the embrace of nature's bounty. Yet, even in this paradise, ancient secrets and challenges await those who seek to unlock the true history of the world and their place within it.",
+        "A Miracle of Renewal\nAt the very bottom of the shattered world lies the Lost Oasis, a vast underground sanctuary created by storm energy and time.\nThe massive world tree at its center is believed to have sprouted from a storm crystal of unparalleled power, tied to the Shatterer's essence.",
+        "A Beacon of Life\nThe Oasis is lush and vibrant, filled with plants and creatures unlike anything found elsewhere, many glowing with bioluminescence and storm energy.\nIt is a place of renewal, where the storm energy seems to heal rather than destroy.",
+        "Mythic Significance\nThe Lost Oasis is seen as the heart of the shattered world, a place where The Storm's chaotic nature is balanced by creation and life.\nIt is whispered that those who reach the Oasis might unlock secrets of the Ancients, the Shatterer, and The Storm itself.",
+        "Challenges to Reach It\nReaching the Oasis requires navigating through the Abyssal Depths, surviving both the environment and the remnants of the Ancients' defenses.\nThe journey is considered impossible by many, with only legends and scattered accounts of it and what calls it home fueling its myth."
+      ]
+    }
+  ]
+} 

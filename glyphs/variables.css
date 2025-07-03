@@ -1,0 +1,28 @@
+:root {
+  --color-primary: #AB9C54;
+  --color-secondary: #4A0A2C;
+  --color-background: #0A0005;
+  --color-overlay: rgba(46, 2, 22, 0.85);
+  --color-highlight: rgba(171, 156, 84, 0.6);
+  --color-border: rgba(171, 156, 84, 0.4);
+  --color-shadow: rgba(171, 156, 84, 0.5);
+
+  --font-heading: 'Orbitron', serif;
+  --font-body: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 30px;
+
+  --transition-default: 0.3s ease;
+}
